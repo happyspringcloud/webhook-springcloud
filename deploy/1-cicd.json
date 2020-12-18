@@ -1,0 +1,10 @@
+{
+  "image_registry": "harbor.io",
+  "image_project": "springcloud",
+  "image_repository": "webhook-springcloud",
+  "image_tag": "0.0.1",
+  "req_cpu": "128m",
+  "req_mem": "128Mi",
+  "limit_cpu": "1024m",
+  "limit_mem": "1024Mi"
+}

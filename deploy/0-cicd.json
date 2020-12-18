@@ -1,0 +1,9 @@
+{
+  "namespace": "springcloud",
+  "serviceaccount": "sa-springcloud",
+  "service_target_port": "9999",
+  "service_port": "9999",
+  "service_host": "webhook-springcloud.169.56.84.41.nip.io",
+  "service_replicas": "2",
+  "image_pull_policy": "Always"
+}

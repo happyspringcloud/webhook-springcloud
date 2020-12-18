@@ -8,6 +8,8 @@ class WebhookSpringcloudApplicationTests {
 
 	@Test
 	void contextLoads() {
+		ControllerTest ctlTest = new ControllerTest();
+		ctlTest.testIt();
 	}
 
 }

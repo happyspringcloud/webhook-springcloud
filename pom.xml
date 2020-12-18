@@ -17,6 +17,9 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    	<groovy.version>3.0.7</groovy.version>
 	</properties>
 
 	<dependencies>
@@ -56,6 +59,29 @@
         	<groupId>org.springframework.boot</groupId>
         	<artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+	    
+	    <!-- JaCoCo configuration -->
+    	<dependency>
+        	<groupId>org.jacoco</groupId>
+        	<artifactId>jacoco-maven-plugin</artifactId>
+        	<version>0.7.9</version>
+    	</dependency>
+
+		<!--  spock -->
+		<dependency> 
+			<groupId>org.spockframework</groupId>
+			<artifactId>spock-core</artifactId> 	<!-- for spock itself -->
+			<version>2.0-M2-groovy-3.0</version> 
+			<scope>test</scope>
+		</dependency>   
+		<dependency>
+			<groupId>org.spockframework</groupId>
+			<artifactId>spock-spring</artifactId>	<!--  for Spring support -->   
+			<version>2.0-M2-groovy-3.0</version>
+			<scope>test</scope>
+		</dependency>  
+		
+		  
 	</dependencies>
 
 	<dependencyManagement>
@@ -85,6 +111,43 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+
+	        <!-- JaCoCo configuration -->
+			<plugin>
+	            <groupId>org.jacoco</groupId>
+	            <artifactId>jacoco-maven-plugin</artifactId>
+	            <version>0.8.0</version>
+	            <executions>
+	                <execution>
+	                    <id>default-prepare-agent</id>
+	                    <goals>
+	                        <goal>prepare-agent</goal>
+	                    </goals>
+	                     <configuration>
+			                <!--
+			                    Sets the name of the property containing the settings
+			                    for JaCoCo runtime agent.
+			                -->
+                			<propertyName>surefireArgLine</propertyName>
+            			</configuration>
+	                </execution>
+	                <execution>
+	                    <id>default-report</id>
+	                    <phase>prepare-package</phase>
+	                    <goals>
+	                        <goal>report</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
+	        </plugin>
+	
+			<!-- for Groovy Test -->
+			<plugin>
+				<groupId>org.codehaus.gmavenplus</groupId>
+				<artifactId>gmavenplus-plugin</artifactId>
+				<version>1.6</version>				
+			</plugin>		
+			
 		</plugins>
 	</build>
 
