@@ -146,8 +146,7 @@
 				<groupId>org.codehaus.gmavenplus</groupId>
 				<artifactId>gmavenplus-plugin</artifactId>
 				<version>1.6</version>				
-			</plugin>		
-			
+			</plugin>			
 		</plugins>
 	</build>
 
